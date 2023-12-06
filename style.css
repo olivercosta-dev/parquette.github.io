@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+/*TODO(oliver): Lazy loading*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display SC', serif;
+}
+:root {
+    --text-size-1: 1.5rem;
+    --site-margin-x: 5rem;
+    --site-margin-y: calc((var(--site-margin-x) / 2));
+    --bento-column-gap: 5rem;
+    --bento-row-gap: 2rem;
+    --bento-wrapper-padding-y: 10rem;
+    --a-padding-x: 1rem;
+    --a-padding-y: 0.4rem;
+    --a-border-radius: 3rem;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+a {
+    color: inherit;
+    text-transform: capitalize;
+    font-size: var(--text-size-1);
+    text-decoration: underline;
+}
+html, body{
+    scroll-behavior: smooth;
+}
+.hero-logo img{
+    max-width: 75vw;
+}
+.hero {
+    height: 100lvh;
+    position: relative;
+    background-image: url('./assets/testbg.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.hero-cta{
+    text-align: center;
+}
+.benefits>section {
+    min-height: 100lvh;
+    display: flex;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.benefit-wrapper{
+    margin-left: var(--site-margin-x);
+    margin-right: var(--site-margin-x);
+    margin-top: var(--site-margin-y);
+    margin-bottom: var(--site-margin-y);
+    position: relative;
+    gap: 3rem;
+}
+.benefit-text{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 3rem;
+}
+.benefit-text>h2 {
+    z-index: 999;
+    font-size: 2rem;
+}
+.benefit-text>p{
+    max-width: 30ch;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    font-family: 'Playfair Display', serif;
+    z-index: 999;
+}
+
+.benefit-text>a{
+    position: relative;
+    z-index: 9999;
+    color: #D9D9D9;
+    padding-left: var(--a-padding-x);
+    padding-right: var(--a-padding-x);
+    padding-top: var(--a-padding-y);
+    padding-bottom: var(--a-padding-y);
+    background-color: black;
+    border-radius: var(--a-border-radius);
+    text-align: center;
+}
+
+.benefits-overlay{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #D9D9D9;
+    mix-blend-mode: luminosity;
+    border-radius: 3rem;
+}
+.benefit-modern{
+    background-image: url('./assets/imgs/modernbg2.png');
+    background-attachment: fixed;
+}
+.benefit-affordable {
+    background-image: url('./assets/imgs/megfizethetobg.png');
+    background-attachment: fixed;
+
+}
+.benefit-trustworthy {
+    background-image: url('./assets/imgs/megbizhatobg.png');
+    background-attachment: fixed;
+
+}
+.benefit-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.benefit-img{
+    width: fit-content;
+    height: fit-content;
+    z-index: 999;
+}
+.benefit-img>img{
+    max-height: 25rem; /* This is temporary size */
+    aspect-ratio: 1/1;
+    border-radius: 3rem;
+}
+.benefits>:nth-child(odd) .benefit-text{
+    align-items: flex-end;
+    text-align: right;
+}
+.benefits>:nth-child(even) .benefit-text{
+    align-items: flex-start;
+    text-align: left;
+}
+
+.features{
+    background-image: url('./assets/imgs/try.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100lvh;
+    background-attachment: fixed;
+
+}
+.features>section{
+    width: 100%;
+}
+.feature-bento {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--bento-row-gap);
+    justify-content: space-evenly;
+}
+.feature-bento>.bento-row>div{
+    border-radius: 2rem;
+}
+
+.hungary-row, .delivery-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--bento-column-gap);
+}
+.hungary-text, .delivery-text{
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    word-spacing: 1rem;
+    min-width: 10rem;
+
+}
+.bento-row{
+    align-items: stretch;
+}
+.delivery-logo, .hungary-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 10rem;
+    aspect-ratio: 1/1;
+    align-content: center;
+    overflow: hidden;
+}
+.delivery-logo img, .hungary-logo img{
+    max-width: 5rem;
+    border-radius: 1rem;
+}
+.hungary-logo {
+    position: relative;
+}
+.hungary-mask-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+.h-logo{
+    z-index: 999;
+}
+.feature-bento-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--bento-wrapper-padding-y);
+    padding-bottom: var(--bento-wrapper-padding-y);
+    text-align: center;
+}
+.feature-bento-wrapper>a{
+    display: block;
+}
+.bento-row:not(.hungary-row)>div, .hungary-text, .hungary-mask-overlay{
+    mix-blend-mode: difference;
+    background-color: #B18C6C;
+}
+
+@media (max-width: 1300px) {
+}
+.services-hero{
+    background-image: url('./assets/imgs/szolgaltatasainkbg.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100lvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.services-text-container{
+    line-height: 2;
+    text-align: center;
+}
+.services-text-container>p{
+    font-size: 1.7rem;
+}
+.services-text-container>h1{
+    font-size: 5rem;
+}
+.services-section{
+    min-height: 100lvh;
+    text-align: center;
+    background-image: url('./assets/imgs/szolgbg.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-attachment: fixed;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(17rem,15%));
+    justify-content: center;
+    align-items: baseline;
+    gap: 10rem;
+    position: relative;
+}
+.service-img{
+    aspect-ratio: 1/1;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
+}
+.service-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 1.2s ease;
+}
+.services-grid:has(.service-item:hover)>.service-item:not(:hover){
+    transform: scale(0.6);
+}
+.service-img {
+    display: block;
+    box-shadow: 1px 1px 3px black;
+    position: relative;
+}
+
+.service-item:hover{
+    transform: scale(1.3);
+}
+.service-item:hover>.service-img{
+    box-shadow: 1px 1px 3px black;
+    outline: 1px solid black;
+}
+.parkettacsiszolas{
+    background-image: url('./assets/imgs/parkettacsiszolas.png');
+}
+
+.lepcsoburkolas{
+    background-image: url('./assets/imgs/lepcsoburkolas.png');
+}
+
+.svedpadlo{
+    background-image: url('./assets/imgs/svedpadlo.png');
+}
+
+.aljzatmunkazatok{
+    background-image: url('./assets/imgs/aljzatmunkazatok.png');
+}
+
+.tornaterem{
+    background-image: url('./assets/imgs/tornaterem.jpg');
+}
+
+.parkettabontasok{
+    background-image: url('./assets/imgs/parkettabontasok.jpg');
+}
+
+.intarzia{
+    background-image: url('/assets/imgs/intarzia.jpg');
+}
+
+.szegelyezes{
+    background-image: url('/assets/imgs/szegelyezes.jpg');
+}
+
+.vakpadlo{
+    background-image: url('/assets/imgs/vakpadlo.jpg');
+}
+.availability {
+    min-height: 100lvh;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+.availability-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 3rem;
+}
+.socials>a>img{
+    height: 100%;
+    width: 100%;
+}
+.socials{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+}
+.availability a{
+    display: block;
+}
+.showcaseroom{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.socials>a{
+    height: 3rem;
+}
+.phone-numbers{
+    text-align: right;
+    font-size: 1.5rem;
+}
+.phone-numbers>p:not(.phone-numbers>p:last-child){
+    margin-bottom: 2rem;
+}
+.showcaseroom a{
+    text-transform: lowercase;
+}
+.showcaseroom :first-child{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
