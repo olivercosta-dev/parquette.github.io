@@ -327,7 +327,7 @@ a {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(17rem,15%));
+    grid-template-columns: repeat(auto-fit,minmax(10rem,10%));
     justify-content: center;
     align-items: baseline;
     gap: 10rem;
@@ -347,7 +347,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     position: relative;
     transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1),
     box-shadow 1.2s ease;
@@ -362,10 +362,10 @@ a {
 }
 
 .service-item:hover{
-    transform: scale(1.3);
+    transform: scale(1.5);
 }
 .service-item:hover>.service-img{
-    box-shadow: 1px 1px 3px black;
+    box-shadow: 1px 1px 5px black;
     outline: 1px solid black;
 }
 .parkettacsiszolas{
@@ -403,6 +403,7 @@ a {
 .vakpadlo{
     background-image: url('/assets/imgs/vakpadlo.jpg');
 }
+
 .availability {
     min-height: 100lvh;
     display: flex;
