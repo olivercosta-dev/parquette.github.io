@@ -5,13 +5,16 @@
     margin: 0;
     padding: 0;
     font-family: 'Playfair Display SC', serif;
+    box-sizing: border-box;
+    max-width: 100vw;
+    font-size: var(---font-size-5);
+    scroll-behavior: smooth;
 }
 :root {
-    --text-size-1: 1.5rem;
+    ---font-size-5:calc(15px + 0.390625vw);
     --site-margin-x: 5rem;
     --site-margin-y: calc((var(--site-margin-x) / 2));
-    --bento-column-gap: 5rem;
-    --bento-row-gap: 2rem;
+    --bento-gap: 1vw;
     --bento-wrapper-padding-y: 10rem;
     --a-padding-x: 1rem;
     --a-padding-y: 0.4rem;
@@ -20,16 +23,26 @@
 ::-webkit-scrollbar{
     display: none;
 }
+
+h2{
+    font-size: calc(var(---font-size-5) * 1.5);
+}
+h1{
+    font-size: calc(var(---font-size-5) * 2);
+}
+h3{
+    font-size: calc(var(---font-size-5) * 1.2);
+}
+.hero-cta h3, .showcaseroom h3{
+    font-weight: normal;
+}
 a {
     color: inherit;
     text-transform: capitalize;
-    font-size: var(--text-size-1);
     text-decoration: underline;
 }
-html, body{
-    scroll-behavior: smooth;
-}
-.hero-logo img{
+
+.hero-logo img, .available-logo img{
     max-width: 75vw;
 }
 .hero {
@@ -39,7 +52,7 @@ html, body{
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed;;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,12 +75,16 @@ html, body{
 }
 
 .benefit-wrapper{
+    position: relative;
+    gap: 3rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
     margin-left: var(--site-margin-x);
     margin-right: var(--site-margin-x);
     margin-top: var(--site-margin-y);
     margin-bottom: var(--site-margin-y);
-    position: relative;
-    gap: 3rem;
 }
 .benefit-text{
     position: relative;
@@ -79,11 +96,9 @@ html, body{
 }
 .benefit-text>h2 {
     z-index: 999;
-    font-size: 2rem;
 }
 .benefit-text>p{
     max-width: 30ch;
-    font-size: 1.5rem;
     line-height: 1.7;
     font-family: 'Playfair Display', serif;
     z-index: 999;
@@ -116,34 +131,31 @@ html, body{
 }
 .benefit-modern{
     background-image: url('./assets/imgs/modernbg2.png');
-    background-attachment: fixed;
+    background-attachment: fixed;;
 }
 .benefit-affordable {
     background-image: url('./assets/imgs/megfizethetobg.png');
-    background-attachment: fixed;
+    background-attachment: fixed;;
 
 }
 .benefit-trustworthy {
     background-image: url('./assets/imgs/megbizhatobg.png');
-    background-attachment: fixed;
-
+    background-attachment: fixed;;
 }
-.benefit-wrapper{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-}
-.benefit-img{
-    width: fit-content;
-    height: fit-content;
+.benefit-img {
     z-index: 999;
-}
-.benefit-img>img{
-    max-height: 25rem; /* This is temporary size */
-    aspect-ratio: 1/1;
     border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.benefit-img>img{
+    border-radius: 3rem;
+}
+.benefit-img>img, .benefit-text{
+    max-height: 55vh;
+    min-height: max-content;
 }
 .benefits>:nth-child(odd) .benefit-text{
     align-items: flex-end;
@@ -154,63 +166,69 @@ html, body{
     text-align: left;
 }
 
+@media screen and (max-width: 1085px) {
+   .benefit-wrapper{
+        flex-direction: column;
+    }
+    .benefit-img{
+        display: block;
+    }
+    .benefit-img img{
+        display: block;
+        margin: 0 auto;
+    }
+}
 .features{
     background-image: url('./assets/imgs/try.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100lvh;
-    background-attachment: fixed;
+    min-height: 100lvh;
+    background-attachment: fixed;;
 
 }
 .features>section{
     width: 100%;
 }
 .feature-bento {
-    margin-left: 10rem;
-    margin-right: 10rem;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: var(--bento-row-gap);
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    gap: var(--bento-gap);
+    margin-left: var(--site-margin-x);
+    margin-right: var(--site-margin-x);
+    justify-content: center;
+}
+.hungary-text{
+    grid-column: 1 / 8;
+}
+.delivery-logo{
+    grid-column: 1 / 2;
+}
+.delivery-text{
+    grid-column: 2 / 9;
+}
+.delivery-logo,.delivery-text{
+    grid-row: 2;
 }
 .feature-bento>.bento-row>div{
     border-radius: 2rem;
 }
 
-.hungary-row, .delivery-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--bento-column-gap);
-}
 .hungary-text, .delivery-text{
-    flex-grow: 1;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
     word-spacing: 1rem;
     min-width: 10rem;
+}
 
-}
-.bento-row{
-    align-items: stretch;
-}
 .delivery-logo, .hungary-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-width: 10rem;
     aspect-ratio: 1/1;
-    align-content: center;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.delivery-logo img, .hungary-logo img{
+.delivery-logo img, .hungary-logo img, .delivery-logo, .hungary-logo{
     max-width: 5rem;
     border-radius: 1rem;
 }
@@ -230,28 +248,60 @@ html, body{
     z-index: 999;
 }
 .feature-bento-wrapper {
-    display: flex;
-    flex-direction: column;
     padding-top: var(--bento-wrapper-padding-y);
     padding-bottom: var(--bento-wrapper-padding-y);
     text-align: center;
 }
-.feature-bento-wrapper>a{
-    display: block;
-}
-.bento-row:not(.hungary-row)>div, .hungary-text, .hungary-mask-overlay{
+
+.feature-bento>div:not(.hungary-logo), .hungary-mask-overlay {
     mix-blend-mode: difference;
     background-color: #B18C6C;
+    border-radius: 2rem;
+}
+.feature-bento p{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
-@media (max-width: 1300px) {
+@media screen and (max-width: 500px) {
+    :root{
+        --site-margin-x:1rem;
+    }
+  .feature-bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
+  .hungary-text{
+    grid-column: 1 / 3;
+}
+  .hungary-logo{
+    grid-column: 1 / 2;
+}
+.hungary-logo,.delivery-logo{
+    /* justify-self: center; */
+    max-width: 100% !important;
+}
+  .delivery-logo{
+    grid-column: 2 / 3;
+}
+  .delivery-text{
+    grid-column: 1 / 3;
+    grid-row: 3;
+}
+    .benefits>section:last-child .benefit-img{
+        order: 2;
+    }
+}
+
 .services-hero{
     background-image: url('./assets/imgs/szolgaltatasainkbg.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed;;
     height: 100lvh;
     display: flex;
     justify-content: center;
@@ -260,12 +310,7 @@ html, body{
 .services-text-container{
     line-height: 2;
     text-align: center;
-}
-.services-text-container>p{
-    font-size: 1.7rem;
-}
-.services-text-container>h1{
-    font-size: 5rem;
+    /*: clamp(1.5rem, calc(3vw + 1rem),3rem);*/
 }
 .services-section{
     min-height: 100lvh;
@@ -274,10 +319,10 @@ html, body{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed;;
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-attachment: fixed;
+    background-attachment: fixed;;
 }
 
 .services-grid {
@@ -375,6 +420,10 @@ html, body{
     flex-wrap: wrap;
     row-gap: 3rem;
 }
+.available-logo{
+    display: flex;
+    justify-content: center;
+}
 .socials>a>img{
     height: 100%;
     width: 100%;
@@ -399,8 +448,7 @@ html, body{
     height: 3rem;
 }
 .phone-numbers{
-    text-align: right;
-    font-size: 1.5rem;
+    text-align: left;
 }
 .phone-numbers>p:not(.phone-numbers>p:last-child){
     margin-bottom: 2rem;
@@ -409,6 +457,5 @@ html, body{
     text-transform: lowercase;
 }
 .showcaseroom :first-child{
-    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
