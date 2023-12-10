@@ -191,6 +191,7 @@ a {
     width: 100%;
 }
 .feature-bento {
+
     display: grid;
     grid-template-columns: repeat(8, 1fr); 
     gap: var(--bento-gap);
@@ -198,9 +199,43 @@ a {
     margin-right: var(--site-margin-x);
     justify-content: center;
 }
-.hungary-text{
+.hungary-text,
+.hungary-mask-overlay{
     grid-column: 1 / 8;
+    animation-name: animateGradient;
+    animation-fill-mode: both;
+
+    animation-duration: 3s;
+    background-size: 500% 500%;
 }
+.delivery-logo, 
+.delivery-text {
+    animation-name: animateGradient;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+
+    animation-delay: 3s;
+    background-size: 500% 500%;
+}
+
+
+.hungary-text p,
+.delivery-text p{
+    font-size: calc(var(---font-size-5)*1.3);
+}
+
+@keyframes animateGradient {
+    0% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 50% 100%;
+    }/*
+    100% {
+        background-position: 0% 50%;
+    }*/
+}
+
 .delivery-logo{
     grid-column: 1 / 2;
 }
@@ -254,8 +289,9 @@ a {
 }
 
 .feature-bento>div:not(.hungary-logo), .hungary-mask-overlay {
-    mix-blend-mode: difference;
-    background-color: #B18C6C;
+    mix-blend-mode: hard-light;
+    background-color: #896c54;
+    background-image: radial-gradient(ellipse at center, #8a6543 0%, #a9927d 50%, #8d7157 100%);
     border-radius: 2rem;
 }
 .feature-bento p{
@@ -281,7 +317,6 @@ a {
     grid-column: 1 / 2;
 }
 .hungary-logo,.delivery-logo{
-    /* justify-self: center; */
     max-width: 100% !important;
 }
   .delivery-logo{
@@ -405,6 +440,37 @@ a {
     width: 100%;
     border-radius: 3rem;
 }
+
+.service-item{
+    transition: scale 700ms;
+    animation-name: highlight;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
+.services-grid:has(.item-wrapper:hover) .service-item:not(.service-item:hover){
+    scale: 0.8;
+}
+.service-item:hover{
+    position: relative;
+    z-index: 999;
+    scale: 1.2;
+}
+@keyframes highlight{
+    0% 
+    {
+        transform: scale(0.5);
+    }
+    50%
+    {
+   
+        transform: scale(1.2);
+    }
+    100%
+    {
+
+    }
+}
+
 @media screen and (max-width: 930px) {
     .services-grid{
         grid-template-columns: 1fr 1fr;
@@ -479,4 +545,64 @@ a {
 }
 .showcaseroom :first-child{
     margin-bottom: 0.5rem;
+}
+.hero-logo, .hero-cta{
+    animation: forwards 1500ms fade-in;
+}
+
+
+.benefits>:nth-child(odd) .benefit-text h2,
+.benefits>:nth-child(odd) .benefit-text p,
+.benefits>:nth-child(odd) .benefit-text a,
+.benefits>:nth-child(odd) .benefits-overlay{
+    animation: none 1500ms slide-from-right;
+}
+
+.benefits>:nth-child(even) .benefit-text h2,
+.benefits>:nth-child(even) .benefit-text p,
+.benefits>:nth-child(even) .benefit-text a,
+.benefits>:nth-child(even) .benefits-overlay
+{
+    animation: none 1500ms slide-from-left;
+}
+.benefits>:nth-child(even) .benefit-img
+{
+    animation: 1500ms 1500ms slide-from-right backwards;
+}
+.benefits>:nth-child(odd) .benefit-img
+{
+    animation: 1500ms 1500ms slide-from-left backwards;
+}
+
+@keyframes slide-from-right{
+    0%{
+        transform: translateX(5rem);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0rem);
+        opacity: 100%   ;
+    }
+}
+@keyframes slide-from-left{
+    0%{
+        transform: translateX(-5rem);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0rem);
+        opacity: 100%   ;
+    }
+}
+@keyframes fade-in {
+    0%
+    {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%
+    {
+        translateY: 0px;
+        opacity: 100%;
+    }
 }
