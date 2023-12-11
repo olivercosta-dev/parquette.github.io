@@ -10,6 +10,17 @@
     font-size: var(---font-size-5);
     scroll-behavior: smooth;
 }
+
+header,
+.benefits>section,
+.features,
+.services-hero,
+.services-grid,
+footer
+{
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
 :root {
     ---font-size-5:calc(15px + 0.390625vw);
     --site-margin-x: 5rem;
@@ -46,7 +57,7 @@ a {
     max-width: 75vw;
 }
 .hero {
-    height: 100lvh;
+    min-height: 100lvh;
     position: relative;
     background-image: url('./assets/testbg.png');
     background-position: center center;
@@ -203,7 +214,8 @@ a {
 .hungary-mask-overlay{
     grid-column: 1 / 8;
     animation-name: animateGradient;
-    animation-fill-mode: both;
+    animation-fill-mode: backwards;
+    animation-play-state: paused;
 
     animation-duration: 3s;
     background-size: 500% 500%;
@@ -212,8 +224,8 @@ a {
 .delivery-text {
     animation-name: animateGradient;
     animation-duration: 3s;
-    animation-fill-mode: both;
-
+    animation-fill-mode: backwards;
+    animation-play-state: paused;
     animation-delay: 3s;
     background-size: 500% 500%;
 }
@@ -258,7 +270,6 @@ a {
 .delivery-logo, .hungary-logo {
     min-width: 10rem;
     aspect-ratio: 1/1;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -445,7 +456,8 @@ a {
     transition: scale 700ms;
     animation-name: highlight;
     animation-duration: 2s;
-    animation-fill-mode: both;
+    animation-play-state: paused;
+    animation-fill-mode: backwards;
 }
 .services-grid:has(.item-wrapper:hover) .service-item:not(.service-item:hover){
     scale: 0.8;
@@ -546,8 +558,11 @@ a {
 .showcaseroom :first-child{
     margin-bottom: 0.5rem;
 }
-.hero-logo, .hero-cta{
-    animation: forwards 1500ms fade-in;
+.hero-logo, .hero-cta {
+    opacity: 1;
+    animation-duration: 1500ms;
+    animation-name: fade-in;
+    animation-fill-mode: backwards;
 }
 
 
@@ -556,6 +571,7 @@ a {
 .benefits>:nth-child(odd) .benefit-text a,
 .benefits>:nth-child(odd) .benefits-overlay{
     animation: none 1500ms slide-from-right;
+    animation-play-state: paused;
 }
 
 .benefits>:nth-child(even) .benefit-text h2,
@@ -564,22 +580,25 @@ a {
 .benefits>:nth-child(even) .benefits-overlay
 {
     animation: none 1500ms slide-from-left;
+    animation-play-state: paused;
 }
 .benefits>:nth-child(even) .benefit-img
 {
     animation: 1500ms 1500ms slide-from-right backwards;
+    animation-play-state: paused;
 }
 .benefits>:nth-child(odd) .benefit-img
 {
     animation: 1500ms 1500ms slide-from-left backwards;
+    animation-play-state: paused;
 }
 
 @keyframes slide-from-right{
-    0%{
+    from{
         transform: translateX(5rem);
         opacity: 0;
     }
-    100%{
+    to{
         transform: translateX(0rem);
         opacity: 100%   ;
     }
@@ -603,6 +622,6 @@ a {
     100%
     {
         translateY: 0px;
-        opacity: 100%;
+        opacity: 1;
     }
 }
