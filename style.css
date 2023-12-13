@@ -10,17 +10,6 @@
     font-size: var(---font-size-5);
     scroll-behavior: smooth;
 }
-
-header,
-.benefits>section,
-.features,
-.services-hero,
-.services-grid,
-footer
-{
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
-}
 :root {
     ---font-size-5:calc(15px + 0.390625vw);
     --site-margin-x: 5rem;
@@ -214,7 +203,7 @@ a {
 .hungary-mask-overlay{
     grid-column: 1 / 8;
     animation-name: animateGradient;
-    animation-fill-mode: backwards;
+    animation-fill-mode: both;
     animation-play-state: paused;
 
     animation-duration: 3s;
@@ -224,7 +213,7 @@ a {
 .delivery-text {
     animation-name: animateGradient;
     animation-duration: 3s;
-    animation-fill-mode: backwards;
+    animation-fill-mode: both;
     animation-play-state: paused;
     animation-delay: 3s;
     background-size: 500% 500%;
@@ -303,7 +292,7 @@ a {
     mix-blend-mode: hard-light;
     background-color: #896c54;
     background-image: radial-gradient(ellipse at center, #8a6543 0%, #a9927d 50%, #8d7157 100%);
-    border-radius: 2rem;
+    border-radius: 1rem;
 }
 .feature-bento p{
     height: 100%;
@@ -457,7 +446,7 @@ a {
     animation-name: highlight;
     animation-duration: 2s;
     animation-play-state: paused;
-    animation-fill-mode: backwards;
+    animation-fill-mode: both;
 }
 .services-grid:has(.item-wrapper:hover) .service-item:not(.service-item:hover){
     scale: 0.8;
@@ -562,7 +551,7 @@ a {
     opacity: 1;
     animation-duration: 1500ms;
     animation-name: fade-in;
-    animation-fill-mode: backwards;
+    animation-fill-mode: both;
 }
 
 
@@ -570,7 +559,7 @@ a {
 .benefits>:nth-child(odd) .benefit-text p,
 .benefits>:nth-child(odd) .benefit-text a,
 .benefits>:nth-child(odd) .benefits-overlay{
-    animation: none 1500ms slide-from-right;
+    animation: none 1000ms slide-from-right;
     animation-play-state: paused;
 }
 
@@ -579,17 +568,17 @@ a {
 .benefits>:nth-child(even) .benefit-text a,
 .benefits>:nth-child(even) .benefits-overlay
 {
-    animation: none 1500ms slide-from-left;
+    animation: none 1000ms slide-from-left;
     animation-play-state: paused;
 }
 .benefits>:nth-child(even) .benefit-img
 {
-    animation: 1500ms 1500ms slide-from-right backwards;
+    animation: 1000ms 1000ms slide-from-right backwards;
     animation-play-state: paused;
 }
 .benefits>:nth-child(odd) .benefit-img
 {
-    animation: 1500ms 1500ms slide-from-left backwards;
+    animation: 1000ms 1000ms slide-from-left backwards;
     animation-play-state: paused;
 }
 
@@ -624,4 +613,60 @@ a {
         translateY: 0px;
         opacity: 1;
     }
+}
+@media screen and (max-width: 1400px) {
+    *{
+        background-attachment:local !important;
+    }
+}
+.services-grid-cta{
+    transition: all 0.2s ease-in-out;
+}
+.services-grid-cta:hover{
+    scale: 1.1;
+}
+.socials a{
+    transition: transform 250ms cubic-bezier(.37,.86,.37,.85);
+}
+.socials a:hover{
+    transform: translateY(-1rem);
+}
+main{
+    overflow: hidden;
+}
+.benefit-wrapper a{
+    transition: transform 250ms ease-in-out;
+}
+.benefit-wrapper a:hover{
+    transform: scale(1.1);
+}
+
+.feature-bento>*{
+    transition: outline 250ms ease-in-out;
+    outline: 1px solid transparent;
+}
+
+
+.feature-bento>*:hover{
+    outline: 2px solid #8a6543;
+}
+.hero-cta a *{
+    transition: transform 250ms ease-in-out;
+}
+.hero-cta a :hover{
+    transform: scale(1.1);
+}
+.showcaseroom a{
+    transition: transform 250ms ease-in-out;
+}
+.showcaseroom a:hover{
+    transform: scale(1.1);
+}
+.showcaseroom iframe{
+    transition: all 250ms ease-in-out;
+    outline: 1px solid transparent;
+}
+.showcaseroom iframe:hover{
+    transform: scale(1.1);
+    outline: 1px solid black;
 }

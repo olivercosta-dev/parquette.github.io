@@ -2,28 +2,28 @@ let animationObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
             if(entry.target.classList.contains('services-section')){
-                let i = 0
-                entry.target.querySelectorAll('.service-item')
-                 .forEach(element => {
-                    setTimeout(() => {
-                        element.style.animationPlayState = 'running'}, 250 * i++)
-                 })
+                let i = 0;
+                entry.target.querySelectorAll('.service-item').forEach(element => {
+                    requestAnimationFrame(() => startAnimation(element, i++));
+                });
             } else {
-                entry.target
-                 .querySelectorAll('*')
-                    .forEach((element) => {
-                        element.style.animationPlayState = 'running'
-                    }
-                )
+                entry.target.querySelectorAll('*').forEach(element => {
+                    requestAnimationFrame(() => startAnimation(element, 0));
+                });
             }
-            observer.unobserve(entry.target)
+            observer.unobserve(entry.target);
         }
-    })
+    });
 }, {
-    threshold: 0.5
+    threshold: 0.2
+});
+
+function startAnimation(element, delay) {
+    setTimeout(() => {
+        element.style.animationPlayState = 'running';
+    }, 250 * delay);
 }
-)
 
 document.querySelectorAll('section').forEach(element => {
-    animationObserver.observe(element)
-})
+    animationObserver.observe(element);
+});
